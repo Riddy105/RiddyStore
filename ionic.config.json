@@ -1,0 +1,7 @@
+{
+  "name": "RiddyStore",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
