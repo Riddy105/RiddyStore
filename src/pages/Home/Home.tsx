@@ -12,17 +12,17 @@ interface Category {
   id: string;
 }
 const Home = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const CATEGORIES = useSelector((state: State) => state.categories);
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const allProducts = await getProducts();
-        dispatch(cartActions.writeProducts(allProducts));
-      } catch (err) {}
-    };
-    fetchProducts();
-  });
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     try {
+  //       const allProducts = await getProducts();
+  //       dispatch(cartActions.writeProducts(allProducts));
+  //     } catch (err) {}
+  //   };
+  //   fetchProducts();
+  // });
 
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-8">

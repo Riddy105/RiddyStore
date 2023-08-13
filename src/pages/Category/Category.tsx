@@ -48,8 +48,9 @@ const Category = () => {
         </IonText>
       </div>
       <section className="grid gird-cols-1 md:grid-cols-2 gap-y-4 md:gap-y-12">
-        {PRESENT_CATEGORY_PRODUCTS.map((product: Product) => (
+        {PRESENT_CATEGORY_PRODUCTS.map((product: Product, index) => (
           <IndividualProduct
+            key={index}
             image={product.image}
             price={product.price}
             title={product.title}

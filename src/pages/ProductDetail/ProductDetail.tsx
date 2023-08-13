@@ -1,8 +1,10 @@
-import { IonImg, IonText } from "@ionic/react";
+import { IonButton, IonIcon, IonImg, IonText } from "@ionic/react";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AddRemoveButton } from "../../components";
+import { cartSharp } from "ionicons/icons";
+import { cartActions } from "../../store";
 interface Product {
   category: string;
   image: any;
@@ -15,13 +17,14 @@ interface State {
   products: [];
 }
 const ProductDetail = () => {
+  const dispatch = useDispatch();
   const { productId } = useParams();
   const transformedId = productId?.replace("*", "/").split("+").join(" "); // Converting productId in the URL back to the default string (title of the product)
   const PRODUCTS = useSelector((state: State) => state.products); // Getting all products from store to extract the particular product to be displayed.
   const productToDisplay: any = PRODUCTS.find(
     (item: Product) => item.title === transformedId
   );
-  const { image, description, price, title } = productToDisplay;
+  const { image, description, price, title, category, id } = productToDisplay;
   const [quantity, setQuantity] = useState(1);
   const incrementQuantity = () => {
     setQuantity((prev) => prev + 1);
@@ -29,8 +32,12 @@ const ProductDetail = () => {
   const decrementQuantity = () => {
     setQuantity((prev) => prev - 1);
   };
+  const addToCartHandler = () => {
+    const cartData = { image, category, price, title, quantity, id };
+    dispatch(cartActions.addItemToCart(cartData));
+  };
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2">
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-y-4">
       <IonImg
         src={image}
         alt={title}
@@ -48,7 +55,7 @@ const ProductDetail = () => {
           decrease={decrementQuantity}
           quantity={quantity}
         />
-        <div className="mt-10 flex flex-col gap-6">
+        <div className="my-10 flex flex-col gap-4">
           <IonText className="font-semibold text-xl">
             <h2>Description:</h2>
           </IonText>
@@ -56,6 +63,14 @@ const ProductDetail = () => {
             <p>{description}</p>
           </IonText>
         </div>
+        <IonButton
+          className="w-full md:w-1/2"
+          size="large"
+          onClick={addToCartHandler}
+        >
+          <IonIcon icon={cartSharp}></IonIcon>
+          Add to Cart
+        </IonButton>
       </article>
     </section>
   );

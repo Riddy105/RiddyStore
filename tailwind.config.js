@@ -3,6 +3,7 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     colors: {
+      white: "#fff",
       grey: {
         100: "#757575",
         200: "#172C50",
@@ -12,6 +13,9 @@ export default {
       },
       blue: {
         50: "#172C50",
+      },
+      purple: {
+        100: "#891767",
       },
     },
     extend: {
