@@ -12,7 +12,6 @@ interface Category {
 }
 const Header: React.FC = () => {
   const categories = useSelector((state: State) => state.categories);
-  console.log(categories);
   return (
     <header className="mb-12">
       <div className="grid grid-cols-2 md:grid-cols-3 py-6 items-center gap-y-2">
@@ -29,11 +28,15 @@ const Header: React.FC = () => {
         ></IonIcon>
       </div>
       <ul className="text-grey-100 flex flex-wrap justify-center gap-4 md:gap-8 text-base">
-        {categories.map((category: Category) => (
-          <li>
-            <Link to={`category/${category.id}`}>{category.name}</Link>
-          </li>
-        ))}
+        {categories.map((category: Category) => {
+          const link = category.name.split(" ").join("_"); // To format any category with a space between the name i.e Men's clothing => Men's_clothing
+          const title = category.name.toUpperCase();
+          return (
+            <li>
+              <Link to={`category/${link}`}>{title}</Link>
+            </li>
+          );
+        })}
       </ul>
     </header>
   );

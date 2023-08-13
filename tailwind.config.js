@@ -14,7 +14,11 @@ export default {
         50: "#172C50",
       },
     },
-    extend: {},
+    extend: {
+      boxShadow: {
+        product: "0 0 12px 0 rgba(0,0,0,.12)",
+      },
+    },
   },
   plugins: [],
 };

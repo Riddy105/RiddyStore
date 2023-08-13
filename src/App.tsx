@@ -28,9 +28,9 @@ const App: React.FC = () => {
   const pseudoApiCall = async () => {
     const res = await fetch("https://fakestoreapi.com/products");
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
     const categories = data.map((product) => product.category);
-    console.log(categories);
+    // console.log(categories);
   };
   pseudoApiCall();
   return (

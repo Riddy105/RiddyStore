@@ -3,22 +3,22 @@ import { jewelry, mens_wear, womens_wear, electronics } from "../assets";
 const initialState = {
   categories: [
     {
-      name: `Men's Clothing`,
+      name: `men's clothing`,
       id: "mens_clothing",
       cover: mens_wear,
     },
     {
-      name: `Women's Clothing`,
+      name: `women's clothing`,
       id: "womens_clothing",
       cover: womens_wear,
     },
     {
-      name: `Electronics`,
+      name: `electronics`,
       id: "electronics",
       cover: electronics,
     },
     {
-      name: `Jewelry`,
+      name: `jewelery`,
       id: "jewelry",
       cover: jewelry,
     },
