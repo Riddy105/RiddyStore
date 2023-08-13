@@ -8,7 +8,14 @@ interface CartItemProps {
   quantity: number;
   id: number;
 }
-const initialState = {
+type InitialState = {
+  categories: any[];
+  products: any[];
+  cartItems: any[];
+  itemsInCart: number;
+  totalAmount: number;
+};
+const initialState: InitialState = {
   categories: [
     {
       name: `men's clothing`,
