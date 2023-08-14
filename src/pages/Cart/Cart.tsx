@@ -1,7 +1,8 @@
-import { IonText } from "@ionic/react";
+import { IonButton, IonText } from "@ionic/react";
 import { CartItem } from "../../components";
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 interface State {
   categories: [];
   products: [];
@@ -33,7 +34,7 @@ const Cart = () => {
           2
         )}`}</p>
       )}
-      <div className="flex flex-col gap-6 mt-4">
+      <div className="flex flex-col gap-6 my-4">
         {CART_ITEMS.map((item: CartItem, index) => (
           <CartItem
             category={item.category}
@@ -45,6 +46,9 @@ const Cart = () => {
           ></CartItem>
         ))}
       </div>
+      <Link to="/checkout" className="flex justify-end">
+        <IonButton>Checkout</IonButton>
+      </Link>
     </section>
   );
 };

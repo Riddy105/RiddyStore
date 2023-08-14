@@ -1,11 +1,10 @@
-import { IonButton, IonIcon, IonImg, IonText } from "@ionic/react";
+import { IonButton, IonIcon, IonImg, IonText, IonToast } from "@ionic/react";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AddRemoveButton } from "../../components";
 import { cartSharp } from "ionicons/icons";
 import { cartActions } from "../../store";
-import { toast } from "react-toastify";
 interface Product {
   category: string;
   image: any;
@@ -68,10 +67,18 @@ const ProductDetail = () => {
           className="w-full md:w-1/2"
           size="large"
           onClick={addToCartHandler}
+          id="add-to-cart"
         >
           <IonIcon icon={cartSharp}></IonIcon>
           Add to Cart
         </IonButton>
+        <IonToast
+          message="Item added to cart"
+          position="top"
+          trigger="add-to-cart"
+          duration={3000}
+          animated={true}
+        ></IonToast>
       </article>
     </section>
   );
