@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AddRemoveButton } from "../../components";
 import { cartSharp } from "ionicons/icons";
 import { cartActions } from "../../store";
+import { toast } from "react-toastify";
 interface Product {
   category: string;
   image: any;

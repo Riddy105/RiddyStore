@@ -54,7 +54,7 @@ const cartSlice = createSlice({
     // To addToCart, there are two possible scenarios to check and handle. First is that the intended item to add to cart is a new item and doesn't exist yet in cart, the second scenario is that it is an existing item..
     addItemToCart: (state, action) => {
       const itemToAdd = action.payload;
-      // Check if item exists, if this returns undefined then it's a new item, else it's an existin one
+      // Check if item exists, if this returns undefined then it's a new item, else it's an existing one
       const existingItem: any = state.cartItems.find(
         (item: CartItemProps) => item.id === itemToAdd.id
       );
@@ -73,7 +73,7 @@ const cartSlice = createSlice({
           state.totalAmount + itemToAdd.price * itemToAdd.quantity;
       }
     },
-    // This reducer action takes the "id" of the item to be deleted as the payload then filters the existing cartItems to return items that doesn't match the id.
+    // This reducer action takes the "id" of the item to be deleted as the payload when dispatched, then filters the existing cartItems to return items that doesn't match the id.
     removeItemFromCart: (state, action) => {
       const id = action.payload;
       const itemToDelete: any = state.cartItems.find(

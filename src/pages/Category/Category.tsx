@@ -33,13 +33,13 @@ const Category = () => {
   console.log(PRODUCTS, PRESENT_CATEGORY_PRODUCTS);
   return (
     <section>
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center">
         <IonImg
           src={presentCategory.cover}
-          className="h-[240px] md:h-[320px] w-full object-cover "
+          className="h-[240px] md:h-[320px] w-full object-cover"
         ></IonImg>
         <IonText>
-          <h2 className="text-2xl font-bold ">
+          <h2 className="text-2xl font-bold mt-4">
             {presentCategory.name.toUpperCase()}
           </h2>
         </IonText>
@@ -47,7 +47,7 @@ const Category = () => {
           <p>{`${PRESENT_CATEGORY_PRODUCTS.length} items`}</p>
         </IonText>
       </div>
-      <section className="grid gird-cols-1 md:grid-cols-2 gap-y-4 md:gap-y-12">
+      <section className="grid gird-cols-1 md:grid-cols-2 gap-y-8 md:gap-y-12 mt-8">
         {PRESENT_CATEGORY_PRODUCTS.map((product: Product, index) => (
           <IndividualProduct
             key={index}

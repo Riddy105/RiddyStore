@@ -11,7 +11,7 @@ const IndividualProduct = (props: IndividualProductProps) => {
   const link = title.replace("/", "*").split(" ").join("+"); // Converting product title to readable string as productId in the URL i.e Men's fluffy shirt => Men's+fluffy+shirt
   return (
     <Link to={link}>
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center gap-2 md:gap-4">
         <IonImg src={image} className="h-[300px] w-[300px]"></IonImg>
         <IonText className="font-bold w-3/5 text-center">
           <h2>{title}</h2>
