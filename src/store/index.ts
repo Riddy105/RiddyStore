@@ -104,6 +104,11 @@ const cartSlice = createSlice({
       state.totalAmount = state.totalAmount - itemToDecrement.price;
       state.itemsInCart = state.itemsInCart - 1;
     },
+    clearCart: (state, action) => {
+      state.cartItems = [];
+      state.totalAmount = 0;
+      state.itemsInCart = 0;
+    },
   },
 });
 

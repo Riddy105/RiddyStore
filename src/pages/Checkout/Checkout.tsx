@@ -1,8 +1,15 @@
 import { IonButton, IonSelect, IonSelectOption, IonText } from "@ionic/react";
-import React from "react";
-import { CartItem, CustomInput, CustomSelect } from "../../components";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import {
+  CartItem,
+  CustomInput,
+  CustomSelect,
+  SuccessModal,
+} from "../../components";
+import { useSelector, useDispatch } from "react-redux";
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
+import { cartActions } from "../../store";
 interface State {
   categories: [];
   products: [];
@@ -32,6 +39,9 @@ interface ValuesProp {
   cvv: string;
 }
 const Checkout = () => {
+  const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const CART_ITEMS = useSelector((state: State) => state.cartItems);
   const totalAmount = useSelector((state: State) => state.totalAmount);
   const months = [
@@ -107,8 +117,11 @@ const Checkout = () => {
       return errors;
     },
     onSubmit: (values) => {
-      console.log(values);
-      console.log(formik.errors);
+      setSubmitted(true);
+      dispatch(cartActions.clearCart(null));
+      setTimeout(() => {
+        navigate("/");
+      }, 5000);
     },
   });
   return (
@@ -277,6 +290,7 @@ const Checkout = () => {
           </IonButton>
         </div>
       </section>
+      {submitted && <SuccessModal />}
     </form>
   );
 };

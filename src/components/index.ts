@@ -5,3 +5,4 @@ export { default as AddRemoveButton } from "./AddRemoveButton/AddRemoveButton";
 export { default as CartItem } from "./CartItem/CartItem";
 export { default as CustomInput } from "./CustomInput/CustomInput";
 export { default as CustomSelect } from "./CustomSelect/CustomSelect";
+export { default as SuccessModal } from "./SuccessModal/SuccessModal";

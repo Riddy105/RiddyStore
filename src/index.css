@@ -7,3 +7,10 @@ body {
   height: auto;
   position: relative;
 }
+
+.overlay {
+  @apply z-10 fixed top-0 right-0 h-screen w-screen bg-black-50/50;
+}
+.modal {
+  @apply z-20 text-white fixed top-[10%] left-[50%] translate-x-[-50%] bg-[#1245A8] w-[280px] md:w-[486px] py-12 px-7 flex flex-col items-center gap-10 rounded-lg;
+}
