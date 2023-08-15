@@ -69,7 +69,12 @@ const Header: React.FC = () => {
           );
         })}
       </ul>
-      {!seachBarEmpty && <SearchOptions visibleProducts={visibleProducts} />}
+      {!seachBarEmpty && (
+        <SearchOptions
+          visibleProducts={visibleProducts}
+          setSearchBarEmpty={setSearchBarEmpty}
+        />
+      )}
     </header>
   );
 };
@@ -78,12 +83,18 @@ export default Header;
 
 interface SearchOptionsProps {
   visibleProducts: [];
+  setSearchBarEmpty: (param: boolean) => void;
 }
 const SearchOptions = (props: SearchOptionsProps) => {
-  const { visibleProducts } = props;
+  const { visibleProducts, setSearchBarEmpty } = props;
   return (
     <div className="w-11/12 md:w-1/2 h-[300px] bg-[#f0f8ff] shadow-search z-10 fixed top-[180px] left-[50%] translate-x-[-50%] overflow-scroll py-4 px-4">
-      <ul className=" flex flex-col gap-2">
+      <ul
+        className=" flex flex-col gap-2"
+        onClick={() => {
+          setSearchBarEmpty(true);
+        }}
+      >
         {visibleProducts.map((link: any) => {
           const category = link.category.split(" ").join("_");
           const title = link.title.split(" ").join("+");

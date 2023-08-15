@@ -1,4 +1,4 @@
-import { IonButton, IonSelect, IonSelectOption, IonText } from "@ionic/react";
+import { IonButton, IonText } from "@ionic/react";
 import React, { useState } from "react";
 import {
   CartItem,
