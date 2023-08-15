@@ -47,7 +47,7 @@ const Category = () => {
           <p>{`${PRESENT_CATEGORY_PRODUCTS.length} items`}</p>
         </IonText>
       </div>
-      <section className="grid gird-cols-1 md:grid-cols-2 gap-y-8 md:gap-y-12 mt-8">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-y-8 md:gap-y-12 mt-8">
         {PRESENT_CATEGORY_PRODUCTS.map((product: Product, index) => (
           <IndividualProduct
             key={index}

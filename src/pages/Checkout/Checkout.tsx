@@ -269,7 +269,10 @@ const Checkout = () => {
               <h2 className="font-bold">{`$ ${totalAmount.toFixed(2)}`}</h2>
             </IonText>
           </div>
-          <IonButton onClick={() => formik.handleSubmit()}>
+          <IonButton
+            onClick={() => formik.handleSubmit()}
+            disabled={CART_ITEMS.length === 0}
+          >
             PLACE ORDER
           </IonButton>
         </div>

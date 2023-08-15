@@ -46,9 +46,11 @@ const Cart = () => {
           ></CartItem>
         ))}
       </div>
-      <Link to="/checkout" className="flex justify-end">
-        <IonButton>Checkout</IonButton>
-      </Link>
+      {CART_ITEMS.length > 0 && (
+        <Link to="/checkout" className="flex justify-end">
+          <IonButton>Checkout</IonButton>
+        </Link>
+      )}
     </section>
   );
 };

@@ -76,7 +76,7 @@ const ProductDetail = () => {
           message="Item added to cart"
           position="top"
           trigger="add-to-cart"
-          duration={3000}
+          duration={2000}
           animated={true}
         ></IonToast>
       </article>
