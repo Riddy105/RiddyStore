@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Header } from "../../components";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { getProducts } from "../../api/api";
 import { cartActions } from "../../store";
 import { useDispatch } from "react-redux";
 const Root = () => {
   const dispatch = useDispatch();
+  const pathname = useLocation();
+  const [clear, setClear] = useState<boolean>();
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -14,7 +16,10 @@ const Root = () => {
       } catch (err) {}
     };
     fetchProducts();
-  });
+  }, []);
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [pathname]);
   return (
     <div className="w-11/12 mx-auto">
       <Header />

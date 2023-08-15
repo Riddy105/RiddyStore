@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  overflow: auto;
+  overflow: scroll;
   height: auto;
   position: relative;
 }
