@@ -39,7 +39,7 @@ interface ValuesProp {
   cvv: string;
 }
 const Checkout = () => {
-  const [submitted, setSubmitted] = useState(true);
+  const [submitted, setSubmitted] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const CART_ITEMS = useSelector((state: State) => state.cartItems);
