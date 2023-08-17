@@ -13,7 +13,11 @@ const Root = () => {
       try {
         const allProducts = await getProducts();
         dispatch(cartActions.writeProducts(allProducts));
-      } catch (err) {}
+      } catch (err) {
+        alert(
+          "Oops! Failed to fetch products, please check your network connection and try again."
+        );
+      }
     };
     fetchProducts();
   }, []);

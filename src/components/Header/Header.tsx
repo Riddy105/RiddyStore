@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { IonIcon, IonSearchbar } from "@ionic/react";
 import { cartOutline } from "ionicons/icons";
@@ -20,6 +20,7 @@ interface Product {
   price: number;
 }
 const Header: React.FC = () => {
+  const pathname = useLocation();
   const [visibleProducts, setVisibleProduct] = useState<any>([]);
   const [seachBarEmpty, setSearchBarEmpty] = useState(true);
   const categories = useSelector((state: State) => state.categories);
@@ -37,8 +38,12 @@ const Header: React.FC = () => {
     );
     setVisibleProduct(match);
   };
+
   // This 'searchProductHandler' function is worthy of being explained. What it does is that it filters through an array of 'PRODUCT_LINK' and returns an array filled with product title that matches the user input in the searchbox.
   // PRODUCT_LINK however was mapped out from PRODUCTS array pulled out from the store, it returns an object for each product and this object contains the category and title field for each products {category: '', title: ''}
+  useEffect(() => {
+    setSearchBarEmpty(true);
+  }, [pathname]); // This effect runs any time the path changes in the URL, what it does is get rid of the searchbox component soon as the user moves to another page.
   return (
     <header className="mb-12">
       <div className="grid grid-cols-2 md:grid-cols-3 py-6 items-center gap-y-2">
