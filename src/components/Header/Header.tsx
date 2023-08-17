@@ -30,7 +30,7 @@ const Header: React.FC = () => {
     return { category: product.category, title: product.title };
   });
   const searchProductHandler = (e: any) => {
-    const value = e.target.value;
+    const value = e.target.value.toLowerCase();
     setSearchBarEmpty(!value);
     const match = PRODUCT_LINKS.filter((product) =>
       product.title.toLowerCase().includes(value)
