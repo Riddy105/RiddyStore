@@ -12,7 +12,7 @@ RiddyStore is an e-commerce web application where users can shop different items
 
 In the project directory, you can run:
 
-### `npm start`
+### `ionic serve`
 
 Runs the app in the development mode.\
 Open [http://localhost:8100](http://localhost:8100) to view it in your browser.
