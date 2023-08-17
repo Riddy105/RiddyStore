@@ -14,16 +14,6 @@ interface Category {
 const Home = () => {
   // const dispatch = useDispatch();
   const CATEGORIES = useSelector((state: State) => state.categories);
-  // useEffect(() => {
-  //   const fetchProducts = async () => {
-  //     try {
-  //       const allProducts = await getProducts();
-  //       dispatch(cartActions.writeProducts(allProducts));
-  //     } catch (err) {}
-  //   };
-  //   fetchProducts();
-  // });
-
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-8">
       {CATEGORIES.map((cat: Category, index) => (
@@ -39,3 +29,5 @@ const Home = () => {
 };
 
 export default Home;
+
+// This component renders on the home page. It pulls out the CATEGORIES array from the store which store information about each category i.e name and cover photo for each category.

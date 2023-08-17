@@ -37,6 +37,8 @@ const Header: React.FC = () => {
     );
     setVisibleProduct(match);
   };
+  // This 'searchProductHandler' function is worthy of being explained. What it does is that it filters through an array of 'PRODUCT_LINK' and returns an array filled with product title that matches the user input in the searchbox.
+  // PRODUCT_LINK however was mapped out from PRODUCTS array pulled out from the store, it returns an object for each product and this object contains the category and title field for each products {category: '', title: ''}
   return (
     <header className="mb-12">
       <div className="grid grid-cols-2 md:grid-cols-3 py-6 items-center gap-y-2">
@@ -80,15 +82,16 @@ const Header: React.FC = () => {
 };
 
 export default Header;
-
+// The header component essentially outputs the header that shows up across all pages. Here we find the logo, the search bar and the cart icon.
+// It also contains the navigations to all the categories.
 interface SearchOptionsProps {
   visibleProducts: [];
-  setSearchBarEmpty: (param: boolean) => void;
+  setSearchBarEmpty: (arg: boolean) => void;
 }
 const SearchOptions = (props: SearchOptionsProps) => {
   const { visibleProducts, setSearchBarEmpty } = props;
   return (
-    <div className="w-11/12 md:w-1/2 h-[300px] bg-[#f0f8ff] shadow-search z-10 fixed top-[180px] left-[50%] translate-x-[-50%] overflow-scroll py-4 px-4">
+    <div className="w-11/12 md:w-1/2 h-fit bg-[#f0f8ff] shadow-search z-10 fixed top-[180px] left-[50%] translate-x-[-50%] overflow-scroll py-4 px-4">
       <ul
         className=" flex flex-col gap-2"
         onClick={() => {
@@ -104,7 +107,17 @@ const SearchOptions = (props: SearchOptionsProps) => {
             </li>
           );
         })}
+        {visibleProducts.length === 0 && (
+          <li>Oops! No item match your search.. </li>
+        )}
       </ul>
     </div>
   );
 };
+
+// This SearchOptions component is a box that shows up whenever a user starts typing in the search box. This box is populated by links to those products that matches the text being input by the user.
+// This looks a bit sophisticated, searching for products would have been a whole lot easier if on the home page, I had rendered all the products but because I took an approach where
+// what I have categories on the home page, I couldn't possibly be fltering the array of products against the user input.
+// It takes in two props, visibleProducts and setSearchBarEmpty.
+//1. visibleProducts is an array which contains the links to the products that matches the user inputs, updates on every key stroke.
+//2. setSearchBarEmpty is a state updating function, 'searchBarEmpty' itself is a boolean value that controls the appearance and dissapearance of the box. So I need to set it to false whenever I click on any link so that the box can dissapear when routing to another page. If not done this way, because the header is an app-wide component, the box will persist even after leaving one page to another.

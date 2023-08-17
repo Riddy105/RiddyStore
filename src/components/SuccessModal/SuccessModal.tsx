@@ -21,3 +21,5 @@ const SuccessModal = () => {
 };
 
 export default SuccessModal;
+
+// This component brings up the success modal if checkout is successful. 

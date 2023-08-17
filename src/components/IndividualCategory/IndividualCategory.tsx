@@ -31,3 +31,8 @@ const IndividualCategory = (props: IndividualCategoryProps) => {
 };
 
 export default IndividualCategory;
+
+// This component is responsible for each category box seen on the home page. It accepts name, image of the category as props. On click of each category, it essentially updates
+// the url to '/category/link, where link here is constructed from the name of the category with some string methods. It transforms those categories that have
+// a space in their name. i.e men's category => mens_category
+// electronics still returns => electronics.

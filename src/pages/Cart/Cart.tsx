@@ -56,3 +56,5 @@ const Cart = () => {
 };
 
 export default Cart;
+
+// This is the component rendered on '/cart' path. It is the cart page where all cart items are mapped out. 

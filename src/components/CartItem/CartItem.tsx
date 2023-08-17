@@ -58,3 +58,6 @@ const CartItem = (props: CartItemProps) => {
 };
 
 export default CartItem;
+
+// This component houses the cart item UI and functionality. It accepts several props which includes the title, image, price, id of items added to cart.
+// The "AddREmoveButton" component is used in here to increment and decrement quantity of items in cart.

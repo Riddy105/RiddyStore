@@ -296,3 +296,7 @@ const Checkout = () => {
 };
 
 export default Checkout;
+// This component renders on '/checkout' path, it is the checkout page. There are several input fields found on the page, they essentially capture the user information needed to checkout.
+// I enhanced this form a bit by adding some 'real-world' input fields such as the card number, card name, cvv, expiry date, shipping address and so on.
+// I utilized Formik to handle validations swiftly. I didn't install any library for validation, I handled validations manually by providing a 'validate' function to the useFormik hook.
+// The cart items are still interactable even on this checkout page which means users can still increase, decrease, and remove items in cart. 

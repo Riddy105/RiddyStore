@@ -30,7 +30,6 @@ const Category = () => {
   const PRESENT_CATEGORY_PRODUCTS = PRODUCTS.filter(
     (product: Product) => product.category === transformedId
   );
-  console.log(PRODUCTS, PRESENT_CATEGORY_PRODUCTS);
   return (
     <section>
       <div className="flex flex-col items-center">
@@ -62,3 +61,7 @@ const Category = () => {
 };
 
 export default Category;
+
+// This component is rendered on '/category/:categoryId' path where 'categoryId' is a dynamic value. This page returns products present in each category and how this is done
+// is by extracting the dynamic param i.e 'mens_category" and loop through all the products using the fllter array methods to return only those products whose category matches the present category in the URL.
+// i.e when the URL is '/category/electronics', all products whose category is electronics is returned.

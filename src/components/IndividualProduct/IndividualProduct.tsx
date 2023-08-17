@@ -25,3 +25,10 @@ const IndividualProduct = (props: IndividualProductProps) => {
 };
 
 export default IndividualProduct;
+
+// This component entails individual product card on the category page. It accepts image, price and title as props. On click of any of the product
+// the url is updated to contain the name of the product but there is something worth explaining here, the way the product name is transformed to what
+//eventually shows up in the URL. So let's say the name of the product is 'Men's fluffy leather wear', so that it doesn't get printed to the URL that way with space in-between.
+// I transformed it to show up this way 'Men's+fluffy+leather+wear' in the URL. So basically I splitted the string and joined back using the '+'.
+// So there is an edge case to take note here, some products may actually contain '/' and the way React-Router works is that whener it sees a '/', it creates a path and that breaks the code.
+// In that case, I replaced every '/' with a '*' and that way every thing works fine. I revert this whenever we get to the product-detail page... 
