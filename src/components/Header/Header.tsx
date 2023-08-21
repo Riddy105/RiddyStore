@@ -96,9 +96,15 @@ interface SearchOptionsProps {
 const SearchOptions = (props: SearchOptionsProps) => {
   const { visibleProducts, setSearchBarEmpty } = props;
   return (
-    <div className="w-11/12 md:w-1/2 h-fit bg-[#f0f8ff] shadow-search z-10 fixed top-[180px] left-[50%] translate-x-[-50%] overflow-scroll py-4 px-4">
+    <>
+      <div
+        className="overlay"
+        onClick={() => {
+          setSearchBarEmpty(true);
+        }}
+      ></div>
       <ul
-        className=" flex flex-col gap-2"
+        className=" flex flex-col gap-2 w-11/12 md:w-1/2 h-fit bg-[#f0f8ff] shadow-search z-10 fixed top-[180px] left-[50%] translate-x-[-50%] overflow-scroll py-4 px-4"
         onClick={() => {
           setSearchBarEmpty(true);
         }}
@@ -116,7 +122,7 @@ const SearchOptions = (props: SearchOptionsProps) => {
           <li>Oops! No item match your search.. </li>
         )}
       </ul>
-    </div>
+    </>
   );
 };
 
